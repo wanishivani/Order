@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+    
+        
+<style>
+  label{
+    background-color:moccasin;
+    font-size: larger;
+    border:2px salmon;
+  }
+   input{
+        border: 2px solid orange;
+    }
+input{
+    padding:10px;
+   width:200px;
+   background-color:antiquewhite;
+}
+h1{
+      border-top: 0cap;
+      text-align: center;
+       background-color: pink;
+       border-width: 10;
+
+}
+li {
+  font-size: 50px;
+  background-image: url("img_tree.gif"), url("paper.gif");
+  background-color: #cccccc;
+
+}
+</style>
+</head>
+<body>
+<form action="#"add to a bill="Add to bill(event)">
+    <label for="Number"><strong>Choose Price:</Strong></labe>
+    <input type="number" id="Price" name="fnumber">
+    <label for="text"><strong>Choose Dish:</strong></label>
+    <input type="text" id="fmenu" name="fname">
+
+    <label for="Choose table"><strong>Choose Table:</strong></label>
+    <label for="Add to bill" ></label>
+
+    <input type="Number" id="fNumber" style="width:5%" name="fNumber">
+      <input type="submit" style="width:10%" value="Add to bill">
+    </form>
+    
+<h1>Order</h1>
+
+<ul>
+  <li><b>Table-1</b></li>
+  <li><b>Table-2</b></li>
+  <li><b>Table-3</b></li>
+</ul>
+<ul id="ListOfuser"></ul>
+
+<script>
+    winow.addEventListener("DomContentLoaded",()=>{
+
+axious.get("\https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js")
+.then((response)=>{
+    console.log(response)
+})
+.catch((error)=>{
+    console.log(error)
+})
+crud.get("\https://crudcrud.com/api/2d349015a443468cb2d00fee74eded6d/userdetails")
+.then((response)=>{
+    console.log(response)
+})
+.catch((error)=>{
+    console.log(error)
+})
+
+  const localStorageObj=localStorage;
+  const localStorageKeys = Object.keys(localStorageObj)
+  for(var i =0;i<localStorageKeys.length;i++){
+const key=localStorageKeys[i];
+const userDetailsString=localStorageObj[key];
+const userDetailsStringObj=JSON.parse(userDetailsString);
+  showNewUserOnScreen(userDetailsStringObj)
+  }
+})
+function showNewUserOnScreen(user){
+document.getElementById("choose a Price").value=" ";
+document.getElementById("Number").value=" ";
+document.getElementById("Add to a bill").value=" ";
+
+
+}
+</script>
+</body>
+</html>
